@@ -20,7 +20,7 @@ namespace ProductReviewManagementLINQ
                 Console.WriteLine("Choose Option or press 0 for exit\n1:Add review to the list\n2:Top 3 high Rated product\n" +
                     "3:Products with Rating greater than 3\n4:Count of products for each ProductID\n5:Only ProductID with Review\n" +
                     "6:Skipping top 5 records and displaying remaining records\n7:Only Retrieving ProductID with Rating\n" +
-                    "8:Create DataTable");
+                    "8:Create DataTable\n9:Retrieve Records withIsLike value as True");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -51,6 +51,9 @@ namespace ProductReviewManagementLINQ
                     case 8:
                         ProductReviewManagement.DisplayDataTable(table);
                         break;
+                    case 9:
+                        ProductReviewManagement.RetriveRecordsWithIsLikeTrue(table);
+                        break;
                 }
                 Console.ReadLine();
             }
@@ -63,10 +66,9 @@ namespace ProductReviewManagementLINQ
 }
 
 /*
-UC-8
+UC-9
 Product Review Management 
-- Create DataTable using C# and Add ProductID, UserID, Rating, Review and isLike fields in that.
-- Add 25 default values in datatable list which we have created.
+- Retrieve all the records from the datatable variable who’s isLike value is true using LINQ
 
 Welcome To Product Review Management System
 
@@ -79,18 +81,17 @@ Choose Option or press 0 for exit
 6:Skipping top 5 records and displaying remaining records
 7:Only Retrieving ProductID with Rating
 8:Create DataTable
-8
-ProductId,  UserId,  Rating,  Review,  IsLike
-1,  34, Good,  True, 4.5
-3,  57, Good,  True, 3.9
-4,  56, Average,  True, 3
-7,  22, Bad,  False, 2
-8,  21, Good,  True, 4.7
-3,  67, Good,  True, 4.3
-2,  69, Good,  True, 4.4
-9,  13, Bad,  False, 1.5
-6,  81, Average,  True, 3.5
-5,  29, Good,  True, 4.9
-2,  30, Bad,  False, 2
+9:Retrieve Records withIsLike value as True
+9
+Displaying reviews with IsLike value as True
+ProductId, UserId, Review, IsLike, Rating
+1,  34,  Good,  True,  4.5
+3,  57,  Good,  True,  3.9
+4,  56,  Average,  True,  3
+8,  21,  Good,  True,  4.7
+3,  67,  Good,  True,  4.3
+2,  69,  Good,  True,  4.4
+6,  81,  Average,  True,  3.5
+5,  29,  Good,  True,  4.9
 
  */
