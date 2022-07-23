@@ -56,5 +56,15 @@ namespace ProductReviewManagementLINQ
             DisplayeProductsReview(listRatingGT3);
             */
         }
+        public static void CountofReviewForEachProductID(List<ProductReview> list)
+        {
+            Console.WriteLine("Count of products for each ProductID");
+            //2 lamda Expressions
+            var result = list.GroupBy(p => p.ProductID).Select(product => new { Id = product.Key, Count = product.Count() }).ToList();
+            foreach (var item in result)
+            {
+                Console.WriteLine("ProductID: " + item.Id + " Count: " + item.Count);
+            }
+        }
     }
 }

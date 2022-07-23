@@ -16,7 +16,7 @@ namespace ProductReviewManagementLINQ
                 Console.WriteLine("Welcome To Product Review Management System\n");
                 List<ProductReview> list = ProductReviewManagement.AddProductsReview();
                 Console.WriteLine("Choose Option or press 0 for exit\n1:Add review to the list\n2:Top 3 high Rated product\n" +
-                    "3:Products with Rating greater than 3");
+                    "3:Products with Rating greater than 3\n4:Count of products for each ProductID");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -32,6 +32,9 @@ namespace ProductReviewManagementLINQ
                     case 3:
                         ProductReviewManagement.ProductsRatingGreaterThan3(list);
                         break;
+                    case 4:
+                        ProductReviewManagement.CountofReviewForEachProductID(list);
+                        break;
                 }
                 Console.ReadLine();
             }
@@ -44,17 +47,27 @@ namespace ProductReviewManagementLINQ
 }
 
 /*
-UC-3
+UC-4
 Product Review Management 
-- Retrieve all record from the list who’s rating are greater then 3 and productID is 1 or 4 or 9 using
+- Retrieve count of review present for each productID
+- Using groupby linq Operator
+
+Welcome To Product Review Management System
 
 Choose Option or press 0 for exit
 1:Add review to the list
 2:Top 3 high Rated product
 3:Products with Rating greater than 3
-3
-Retrieving products based on rating greater than 3 and having ProductID as 1/4/9
-ProductID: 1, UserID: 34, Review: Good, IsLike: True, Rating: 4.5
-ProductID: 1, UserID: 78, Review: Good, IsLike: True, Rating: 3.5
-ProductID: 9, UserID: 11, Review: Good, IsLike: True, Rating: 3.9
+4:Count of products for each ProductID
+4
+Count of products for each ProductID
+ProductID: 1 Count: 2
+ProductID: 4 Count: 1
+ProductID: 5 Count: 1
+ProductID: 8 Count: 1
+ProductID: 7 Count: 2
+ProductID: 9 Count: 1
+ProductID: 3 Count: 1
+ProductID: 6 Count: 1
+ProductID: 2 Count: 1
  */
