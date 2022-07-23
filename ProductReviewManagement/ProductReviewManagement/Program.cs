@@ -17,7 +17,7 @@ namespace ProductReviewManagementLINQ
                 List<ProductReview> list = ProductReviewManagement.AddProductsReview();
                 Console.WriteLine("Choose Option or press 0 for exit\n1:Add review to the list\n2:Top 3 high Rated product\n" +
                     "3:Products with Rating greater than 3\n4:Count of products for each ProductID\n5:Only ProductID with Review\n" +
-                    "6:Skipping top 5 records and displaying remaining records");
+                    "6:Skipping top 5 records and displaying remaining records\n7:Only Retrieving ProductID with Rating");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -42,6 +42,9 @@ namespace ProductReviewManagementLINQ
                     case 6:
                         ProductReviewManagement.SkipTop5Records(list);
                         break;
+                    case 7:
+                        ProductReviewManagement.RetrieveProductIDWithRating(list);
+                        break;
                 }
                 Console.ReadLine();
             }
@@ -54,9 +57,9 @@ namespace ProductReviewManagementLINQ
 }
 
 /*
-UC-6
+UC-7
 Product Review Management 
-- skip top 5 records from the list using LINQ and display other records
+- Retrieve only productId and review from the list for all records using LINQ select operator.
 
 Welcome To Product Review Management System
 
@@ -67,12 +70,19 @@ Choose Option or press 0 for exit
 4:Count of products for each ProductID
 5:Only ProductID with Review
 6:Skipping top 5 records and displaying remaining records
-6
-Skipping top 5 records and displaying remaining records
-ProductID: 7, UserID: 22, Review: Average, IsLike: True, Rating: 3
-ProductID: 9, UserID: 11, Review: Good, IsLike: True, Rating: 3.9
-ProductID: 3, UserID: 45, Review: Bad, IsLike: False, Rating: 2.5
-ProductID: 6, UserID: 89, Review: Good, IsLike: True, Rating: 3.5
-ProductID: 2, UserID: 24, Review: Good, IsLike: True, Rating: 4.8
-ProductID: 7, UserID: 10, Review: Bad, IsLike: False, Rating: 2
+7:Only Retrieving ProductID with Rating
+7
+Only Retrieving ProductID with Rating
+ProductID: 1 Rating: 4.5
+ProductID: 4 Rating: 1.5
+ProductID: 5 Rating: 3.5
+ProductID: 8 Rating: 3.5
+ProductID: 1 Rating: 3.5
+ProductID: 7 Rating: 3
+ProductID: 9 Rating: 3.9
+ProductID: 3 Rating: 2.5
+ProductID: 6 Rating: 3.5
+ProductID: 2 Rating: 4.8
+ProductID: 7 Rating: 2
+
  */
