@@ -42,5 +42,19 @@ namespace ProductReviewManagementLINQ
             var top3 = sortedProduct.Take(3).ToList();
             DisplayeProductsReview(top3);
         }
+        public static void ProductsRatingGreaterThan3(List<ProductReview> list)
+        {
+            //Query Syntax
+            Console.WriteLine("Retrieving products based on rating greater than 3 and having ProductID as 1/4/9" );
+            var res = list.Where(p => p.Rating > 3 && (p.ProductID == 1 || p.ProductID == 4 || p.ProductID == 9)).ToList();
+            DisplayeProductsReview(res);
+
+            //Method Syntax
+            /*
+            var products = from product in list where (product.Rating > 3 && (product.ProductID == 1 || product.ProductID == 4 || product.ProductID == 9)) select product;
+            var listRatingGT3 = products.ToList();
+            DisplayeProductsReview(listRatingGT3);
+            */
+        }
     }
 }
